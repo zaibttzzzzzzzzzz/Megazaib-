@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mega Zaib - Pakistan's Best Online Shopping</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary: #FF6B6B;
+            --primary-dark: #E05555;
+            --secondary: #4ECDC4;
+            --dark: #292F36;
+            --light: #F7FFF7;
+            --gray: #6C757D;
+            --warning: #FFE66D;
+            --success: #4ECDC4;
+            --danger: #FF6B6B;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #F5F5F5;
+            color: #333;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            width: 95%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .flex {
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Header Styles */
+        .top-bar {
+            background-color: var(--dark);
+            color: white;
+            padding: 8px 0;
+            font-size: 13px;
+        }
+        
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .top-links a {
+            color: white;
+            margin-left: 15px;
+            font-size: 12px;
+            transition: color 0.3s;
+        }
+        
+        .top-links a:hover {
+            color: var(--primary);
+        }
+        
+        .top-links a i {
+            margin-right: 5px;
+        }
+        
+        /* Main Header */
+        .main-header {
+            background-color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        
+        .logo {
+            width: 150px;
+        }
+        
+        .search-bar {
+            flex: 1;
+            max-width: 600px;
+            display: flex;
+            position: relative;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid var(--primary);
+            border-radius: 4px 0 0 4px;
+            font-size: 14px;
+            outline: none;
+        }
+        
+        .search-bar button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .search-bar button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .cart-btn {
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .cart-btn:hover {
+            background-color: #e9ecef;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--primary);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        /* Navigation */
+        .main-nav {
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .all-categories {
+            background-color: var(--primary);
+            padding: 12px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            min-width: 250px;
+        }
+        
+        .all-categories i {
+            margin-right: 10px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin-left: 20px;
+        }
+        
+        .nav-menu li {
+            padding: 15px 12px;
+            position: relative;
+        }
+        
+        .nav-menu li a {
+            color: white;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu li:hover a {
+            color: var(--primary);
+        }
+        
+        /* Hero Banner */
+        .hero-section {
+            margin: 20px 0;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .categories-sidebar {
+            width: 250px;
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+        
+        .category-item {
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        
+        .category-item:hover {
+            background-color: #f8f9fa;
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        .category-item i {
+            margin-right: 10px;
+            color: var(--gray);
+        }
+        
+        .main-banner {
+            flex: 1;
+            height: 350px;
+            background-image: url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 4px;
+            position: relative;
+        }
+        
+        .banner-content {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            color: white;
+            max-width: 400px;
+        }
+        
+        .banner-content h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .banner-content p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .banner-btn {
+            background-color: white;
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        
+        .banner-btn:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Flash Sale Section */
+        .section-title {
+            font-size: 24px;
+            margin: 30px 0 20px;
+            color: var(--dark);
+            font-weight: 700;
+        }
+        
+        .flash-sale-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .sale-timer {
+            display: flex;
+            align-items: center;
+            background-color: #fff8e1;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .timer-part {
+            background-color: var(--dark);
+            color: white;
+            padding: 5px;
+            border-radius: 3px;
+            margin: 0 5px;
+            min-width: 25px;
+            text-align: center;
+        }
+        
+        .view-all {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--primary);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .product-image {
+            height: 200px;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .product-title {
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 40px;
+        }
+        
+        .product-price {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-size: 14px;
+            margin-left: 5px;
+        }
+        
+        .discount-badge {
+            background-color: #ffebee;
+            color: var(--danger);
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 5px;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+        }
+        
+        .stars {
+            color: #FFD700;
+            font-size: 14px;
+            margin-right: 5px;
+        }
+        
+        .rating-count {
+            color: var(--gray);
+            font-size: 12px;
+        }
+        
+        .add-to-cart {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+        
+        .add-to-cart:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Categories Section */
+        .categories-section {
+            margin: 40px 0;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        
+        .category-card {
+            background-color: white;
+            border-radius: 4px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 10px;
+            background-color: #f8f9fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        /* Footer */
+        .main-footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a {
+            color: #adb5bd;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #495057;
+            font-size: 14px;
+            color: #adb5bd;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-section {
+                flex-direction: column;
+            }
+            
+            .categories-sidebar {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            .search-bar {
+                order: 3;
+                width: 100%;
+                margin-top: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .categories-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div>Welcome to Mega Zaib - Pakistan's #1 Online Shopping Store</div>
+            <div class="top-links">
+                <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+                <a href="#"><i class="fas fa-bell"></i> Notifications</a>
+                <a href="#"><i class="fas fa-rupee-sign"></i> PKR</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="index.html">
+                <img src="https://files.catbox.moe/heyq1g.jpg" alt="Mega Zaib Logo" class="logo">
+            </a>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search for products...">
+                <button><i class="fas fa-search"></i> Search</button>
+            </div>
+            
+            <a href="#" class="cart-btn">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Cart</span>
+                <span class="cart-count">3</span>
+            </a>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container nav-container">
+            <div class="all-categories">
+                <i class="fas fa-bars"></i>
+                <span>All Categories</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Electronics</a></li>
+                <li><a href="#">Fashion</a></li>
+                <li><a href="#">Home & Living</a></li>
+                <li><a href="#">Beauty</a></li>
+                <li><a href="#">Appliances</a></li>
+                <li><a href="#">Mobiles</a></li>
+                <li><a href="#">Groceries</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Banner -->
+        <section class="hero-section">
+            <div class="categories-sidebar">
+                <div class="category-item">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Smartphones</span>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-laptop"></i>
+                    <span>Laptops</span>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-tshirt"></i>
+                    <span>Men's Fashion</span>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-female"></i>
+                    <span>Women's Fashion</span>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-home"></i>
+                    <span>Home Appliances</span>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Gaming</span>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-headphones"></i>
+                    <span>Audio</span>
+                </div>
+                <div class="category-item">
+                    <i class="fas fa-baby"></i>
+                    <span>Baby Products</span>
+                </div>
+            </div>
+            
+            <div class="main-banner">
+                <div class="banner-content">
+                    <h2>Summer Mega Sale</h2>
+                    <p>Up to 70% off on selected items. Limited time offer!</p>
+                    <a href="#" class="banner-btn">Shop Now</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Flash Sale Section -->
+        <section>
+            <h2 class="section-title">Flash Sale</h2>
+            
+            <div class="flash-sale-header">
+                <div class="sale-timer">
+                    <span>Ending in:</span>
+                    <span class="timer-part" id="flash-hours">12</span>
+                    <span>:</span>
+                    <span class="timer-part" id="flash-minutes">45</span>
+                    <span>:</span>
+                    <span class="timer-part" id="flash-seconds">30</span>
+                </div>
+                <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <span class="product-badge">Hot</span>
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/71xb2xkN5qL._AC_UL320_.jpg" alt="Samsung Galaxy S23">
+                    </div>
+                    <div class="main-banner">
+                <div class="banner-content">
+                    <h2>Summer Mega Sale</h2>
+                    <p>Up to 70% off on selected items. Limited time offer!</p>
+                    <a href="#" class="banner-btn">Shop Now</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Flash Sale Section -->
+        <section>
+            <h2 class="section-title">Flash Sale</h2>
+            
+            <div class="flash-sale-header">
+                <div class="sale-timer">
+                    <span>Ending in:</span>
+                    <span class="timer-part" id="flash-hours">12</span>
+                    <span>:</span>
+                    <span class="timer-part" id="flash-minutes">45</span>
+                    <span>:</span>
+                    <span class="timer-part" id="flash-seconds">30</span>
+                </div>
+                <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <span class="product-badge">Hot</span>
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/71xb2xkN5qL._AC_UL320_.jpg" alt="Samsung Galaxy S23">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Samsung Galaxy S23 5G (256GB) - Phantom Black</h3>
+                        <div class="product-price">PKR 249,999 <span class="original-price">PKR 269,999</span> <span class="discount-badge">7% OFF</span></div>
+                        <div class="rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">(1,234)</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/61BGE6iu4AL._AC_UL320_.jpg" alt="iPhone 14 Pro">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Apple iPhone 14 Pro (128GB) - Space Black</h3>
+                        <div class="product-price">PKR 399,999 <span class="original-price">PKR 429,999</span> <span class="discount-badge">7% OFF</span></div>
+                        <div class="rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-count">(987)</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <span class="product-badge">Trending</span>
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/71qod7xgH7L._AC_UL320_.jpg" alt="OnePlus 11">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">OnePlus 11 5G (256GB) - Eternal Green</h3>
+                        <div class="product-price">PKR 199,999 <span class="original-price">PKR 219,999</span> <span class="discount-badge">9% OFF</span></div>
+                        <div class="rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-count">(2,345)</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/71VuVjWlJtL._AC_UL320_.jpg" alt="Xiaomi 13 Pro">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Xiaomi 13 Pro 5G (256GB) - Ceramic Black</h3>
+                        <div class="product-price">PKR 179,999 <span class="original-price">PKR 199,999</span> <span class="discount-badge">10% OFF</span></div>
+                        <div class="rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">(876)</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <span class="product-badge">New</span>
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/61cwywLZR-L._AC_UL320_.jpg" alt="Google Pixel 7 Pro">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Google Pixel 7 Pro (128GB) - Snow White</h3>
+                        <div class="product-price">PKR 189,999 <span class="original-price">PKR 209,999</span> <span class="discount-badge">9% OFF</span></div>
+                        <div class="rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-count">(654)</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/71AvQd3VzqL._AC_UL320_.jpg" alt="OPPO Find X5 Pro">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">OPPO Find X5 Pro (256GB) - Ceramic White</h3>
+                        <div class="product-price">PKR 169,999 <span class="original-price">PKR 189,999</span> <span class="discount-badge">10% OFF</span></div>
+                        <div class="rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">(432)</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Categories Section -->
+        <section class="categories-section">
+            <h2 class="section-title">Shop By Categories</h2>
+            
+            <div class="categories-grid">
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Smartphones</h3>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Laptops</h3>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Men's Fashion</h3>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <h3>Women's Fashion</h3>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Home & Living</h3>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Gaming</h3>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <h3>Audio</h3>
+                </a>
+                
+                <a href="#" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h3>Baby Products</h3>
+                </a>
+            </div>
+        </section>
+        
+        <!-- More Products Section -->
+        <section>
+            <h2 class="section-title">Trending Products</h2>
+            
+            <div class="products-grid">
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/71WkDpDtcqL._AC_UL320_.jpg" alt="Samsung Galaxy Watch 5">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Samsung Galaxy Watch5 (44mm) - Bluetooth</h3>
+                        <div class="product-price">PKR 49,999 <span class="original-price">PKR 59,999</span> <span class="discount-badge">16% OFF</span></div>
+                        <div class="rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">(765)</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <span class="product-badge">Best Seller</span>
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/61XZQXFQeVL._AC_UL320_.jpg" alt="Apple Watch Series 8">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Apple Watch Series 8 (GPS, 45mm) - Midnight</h3>
+                        <div class="product-price">PKR 89,999 <span class="original-price">PKR 99,999</span> <span class="discount-badge">10% OFF</span></div>
+                        <div class="rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-count">(1,543)</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 9 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/61+Q6RhJDKL._AC_UL320_.jpg" alt="Sony WH-1000XM5">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Sony WH-1000XM5 Wireless Noise Cancelling Headphones</h3>
+                        <div class="product-price">PKR 59,999 <span class="original-price">PKR 69,999</span> <span class="discount-badge">14% OFF</span></div>
+                        <div class="rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">(2,109)</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 10 -->
+                <div class="product-card">
+                    <span class="product-badge">Limited Stock</span>
+                    <div class="product-image">
+                        <img src="https://m.media-amazon.com/images/I/71S8qt+K8hL._AC_UL320_.jpg" alt="MacBook Air M2">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Apple MacBook Air (M2, 8GB, 256GB) - Midnight</h3>
+                        <div class="product-price">PKR 299,999 <span class="original-price">PKR 329,999</span> <span class="discount-badge">9% OFF</span></div>
+                        <div class="rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-count">(3,456)</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">How to Buy</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>About Mega Zaib</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Mega Zaib Careers</a></li>
+                        <li><a href="#">Mega Zaib Policies</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Mega Zaib Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Payment Methods</h3>
+                    <ul>
+                        <li><a href="#">Credit/Debit Card</a></li>
+                        <li><a href="#">EasyPaisa</a></li>
+                        <li><a href="#">JazzCash</a></li>
+                        <li><a href="#">Bank Transfer</a></li>
+                        <li><a href="#">Cash on Delivery</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                        <li><a href="#"><i class="fab fa-tiktok"></i> TikTok</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Mega Zaib. All Rights Reserved.</p>
+                <p>Prices are shown in Pakistani Rupees (PKR)</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Flash Sale Timer
+        function updateFlashSaleTimer() {
+            const hoursElement = document.getElementById('flash-hours');
+            const minutesElement = document.getElementById('flash-minutes');
+            const secondsElement = document.getElementById('flash-seconds');
+            
+            let hours = parseInt(hoursElement.textContent);
+            let minutes = parseInt(minutesElement.textContent);
+            let seconds = parseInt(secondsElement.textContent);
+            
+            if (seconds > 0) {
+                seconds--;
+            } else {
+                seconds = 59;
+                if (minutes > 0) {
+                    minutes--;
+                } else {
+                    minutes = 59;
+                    if (hours > 0) {
+                        hours--;
+                    } else {
+                        // Sale ended
+                        document.querySelector('.sale-timer').innerHTML = '<span>Sale Ended!</span>';
+                        return;
+                    }
+                }
+            }
+  
